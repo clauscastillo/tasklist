@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Formulario from './components/Formulario';
+import Lista from './components/Lista';
 
 function App() {
+  const [list, setList] = useState(
+    [
+      {
+        title: 'Estudiar',
+        description: 'Hacer tareas de CD',
+        status: 'undone',
+        id: 1
+      }
+    ]
+  )
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Formulario list={list} setList={setList} />
+      <Lista list={list} setList={setList} />
     </div>
   );
 }
