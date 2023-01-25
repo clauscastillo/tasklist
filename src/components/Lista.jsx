@@ -14,12 +14,15 @@ const Lista = ({list, setList}) => {
       setList(filteredList)
     } 
   
-  const taskDone = (taskStatus) => {
-    if (taskStatus == true) {
-      setStatus('done')
-      
+  const taskDone = (taskStatus, taskId, taskStatuse) => {
+    if (taskStatus === true) {
+      setStatus('done');
+      list[taskId-1].status = 'done'
+      setList(list)
     } else {
       setStatus('undone')
+      list[taskId-1].status = 'undone'
+      setList(list)
     }
   }
   
@@ -30,7 +33,7 @@ const Lista = ({list, setList}) => {
       {list.map((task) =>
         <>
         <p className={status}>{task.title}</p>
-        <input onChange={(evento)=> taskDone(evento.target.checked)} type="checkbox" name="" id="" />
+        <input onChange={(evento)=> taskDone(evento.target.checked, task.id, task.status)} type="checkbox" name="" id="" />
         <p>{task.description}</p>
         <button className='btn btn-danger' onClick={() => deleteTask(task.id, task.status)}>Delete</button> 
         </>
