@@ -5,7 +5,7 @@ const Formulario = ({list, setList}) => {
 
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
-  const [status, setStatus] = useState("undone")
+  const [status, setStatus] = useState(false)
 
   const id = list.length+1
   const formHandle = (event) => {

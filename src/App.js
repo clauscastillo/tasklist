@@ -10,7 +10,7 @@ function App() {
       {
         title: 'Estudiar',
         description: 'Hacer tareas de CD',
-        status: 'undone',
+        status: false,
         id: 1
       }
     ]
